@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daily News - Home</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #0d1117;
+            color: #ffffff;
+            overflow-x: hidden;
+        }
+
+        
+        .video-container {
+            position: relative;
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        #bg-video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -2;
+        }
+
+        
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.45);
+            z-index: -1;
+        }
+
+        
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 5%;
+            background: rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(8px);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: 800;
+            color: #ffffff;
+            text-transform: lowercase;
+            letter-spacing: 1px;
+        }
+
+        nav {
+            display: flex;
+            gap: 25px;
+        }
+
+        nav a {
+            color: #ffffff;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 16px;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #ff3b3f;
+        }
+
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        
+        .search-box {
+            position: relative;
+            background: rgba(255, 255, 255, 0.85);
+            border-radius: 8px;
+            padding: 6px 12px;
+            display: flex;
+            align-items: center;
+        }
+
+        .search-box input {
+            border: none;
+            outline: none;
+            background: transparent;
+            padding: 4px 8px;
+            font-size: 14px;
+            color: #333;
+        }
+
+        .search-box i {
+            color: #666;
+            cursor: pointer;
+        }
+
+        .theme-btn {
+            background: transparent;
+            border: none;
+            color: #fff;
+            font-size: 20px;
+            cursor: pointer;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            font-size: 24px;
+            cursor: pointer;
+        }
+
+        
+        .hero-content {
+            text-align: center;
+            margin: auto;
+            padding: 0 20px;
+        }
+
+        .hero-content h1 {
+            font-size: 64px;
+            font-weight: 900;
+            letter-spacing: 3px;
+            text-shadow: 2px 4px 10px rgba(0, 0, 0, 0.8);
+            line-height: 1.1;
+        }
+
+        
+        @media (max-width: 768px) {
+            nav {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 70px;
+                left: 0;
+                width: 100%;
+                background: rgba(0, 0, 0, 0.95);
+                padding: 20px 0;
+                text-align: center;
+                gap: 15px;
+            }
+
+            nav.active {
+                display: flex;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .hero-content h1 {
+                font-size: 38px;
+            }
+
+            .search-box input {
+                width: 110px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="video-container">
+        
+        <video autoplay loop muted playsinline id="bg-video">
+            <source src="WhatsApp Video 2026-09-18 at 7.41.29 AM.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+
+       
+        <div class="overlay"></div>
+
+       
+        <header>
+            <div class="logo">Daily News</div>
+
+            <nav id="navbar">
+                <a href="index.html">Home</a>
+                <a href="category.html">Tech</a>
+                <a href="Articles.html">Sports</a>
+            </nav>
+
+            <div class="nav-right">
+                <div class="search-box">
+                    <input type="text" placeholder="Search News...">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </div>
+                <button class="theme-btn" id="theme-toggle">
+                    <i class="fa-solid fa-moon"></i>
+                </button>
+                <div class="mobile-menu-btn" id="mobile-btn">
+                    <i class="fa-solid fa-bars"></i>
+                </div>
+            </div>
+        </header>
+
+        
+        <div class="hero-content">
+            
+        </div>
+    </div>
+
+    <script>
+        
+        const mobileBtn = document.getElementById('mobile-btn');
+        const navbar = document.getElementById('navbar');
+
+        mobileBtn.addEventListener('click', () => {
+            navbar.classList.toggle('active');
+        });
+
+        
+        const themeBtn = document.getElementById('theme-toggle');
+        themeBtn.addEventListener('click', () => {
+            if (themeBtn.innerText === '🌙') {
+                themeBtn.innerText = '☀️';
+            } else {
+                themeBtn.innerText = '🌙';
+            }
+        });
+        
+    </script>
+</body>
+</html>
